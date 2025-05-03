@@ -1,10 +1,21 @@
 import { Router } from "express";
 const router = Router();
-import { requireAuth } from "@clerk/express";
-import { getSavedJobs, getAppliedJobs } from "../controllers/userController.js";
+
+import {
+  getSavedJobs,
+  getAppliedJobs,
+  applyToJob,
+  saveJob,
+  unsaveJob,
+  unapplyJob,
+} from "../controllers/userController.js";
 
 // These routes should be protected by Clerk middleware
-router.get("/saved", requireAuth, getSavedJobs);
-router.get("/applied", requireAuth, getAppliedJobs);
+router.get("/saved-jobs", getSavedJobs);
+router.get("/applied-jobs", getAppliedJobs);
+router.post("/save-job", saveJob);
+router.post("/apply-job", applyToJob);
+router.post("/unsave-job", unsaveJob);
+router.post("/unapply-job", unapplyJob);
 
 export default router;
