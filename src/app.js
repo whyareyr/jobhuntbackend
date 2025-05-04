@@ -45,11 +45,6 @@ app.use("/api/jobs", jobRoutes);
 // Protected routes (require Clerk auth)
 app.use("/api/users", clerkMiddleware(), userRoutes);
 
-// Debug route to test if API is working
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "API is working" });
-});
-
 // Error handler
 app.use(errorHandler);
 

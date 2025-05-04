@@ -10,7 +10,7 @@ import {
   unapplyJob,
 } from "../controllers/userController.js";
 
-// These routes should be protected by Clerk middleware
+//protected routes (require Clerk auth)
 router.get("/saved-jobs", getSavedJobs);
 router.get("/applied-jobs", getAppliedJobs);
 router.post("/save-job", saveJob);

@@ -2,7 +2,7 @@ import pool from "../db/index.js";
 
 export const getAllJobs = async (req, res, next) => {
   try {
-    const result = await pool.query("SELECT * FROM jobs LIMIT 200");
+    const result = await pool.query("SELECT * FROM jobs");
     res.json(result.rows);
   } catch (err) {
     next(err);
